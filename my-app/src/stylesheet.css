@@ -1,0 +1,103 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Courier New', Courier, monospace;
+}
+
+
+#drum-machine{
+    border:5px black solid;
+    border-radius:15px;
+    height:75vh;
+    width:70vw;
+    margin-left:15vw;
+    margin-top: 100px;
+    /*background-color:rgb(202, 30, 42);*/
+    background-image:linear-gradient(to right, rgb(202, 30, 42), rgb(187, 101, 101));
+   
+} 
+
+#Key-section{
+    border:5px black solid;
+    bottom:30px;
+    /*margin-top:145px;*/
+    top:120px;
+    margin-left:5vw;
+    width:60vw;
+    height:27.5vh;
+    position:relative;
+
+}
+
+.Piano-key{
+    border:1px black solid;
+    border-right:4px  black solid;
+    width:8.5vw;
+    /*height:100%;*/ 
+    height:168px;
+    background-color:white;
+    cursor: pointer;
+}
+
+.WhiteKey-container{
+    display:grid;
+    /*grid-template-columns: repeat(7,115.7px);*/
+    grid-template-columns: repeat(7,8.5vw);
+    
+}
+
+.BlackPiano-key{
+background-color:black;
+color:white;
+width:2.5vw;
+height:20vh;
+z-index:10;
+bottom:167px;
+left:96px;
+cursor: pointer;
+position:relative;
+
+}
+
+.BlackKey-container{
+    display:grid;
+    grid-template-columns: repeat(7,8.5vw);
+}
+
+.drum-pad{
+    border:5px solid black;
+    /*width:6vw;*/
+    /*height:12vh;*/
+    height:6vh;
+    border-radius:5px;
+    margin-bottom:10px;
+    background-color:rgb(10, 10, 10);
+    cursor: pointer;
+}
+
+#pad-container{
+display:grid;
+grid-template-columns: repeat(4,100px);
+margin-left:140px;
+position:relative;
+top:50px;
+}
+
+#display{
+  background-color:white;
+  border:solid 5px black;  
+  width:18vw;
+  height:6vw;
+  position:relative;
+  left:400px;
+  bottom:90px;
+  border-radius:10px;
+}
+
+
+
