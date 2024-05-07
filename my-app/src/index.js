@@ -8,15 +8,15 @@ const [soundName,setDisplay] = useState("");
 
 
 
-
 function keyHandler(event){
+  console.log("hello")
   for (let i=0; i<=Sounds.drums.length;i++){
     if(Sounds.drums[i].keyPress === event.key.toUpperCase()){
       console.log(event.key.toUpperCase());
 
       const soundPress = document.getElementById(Sounds.drums[i].keyPress.toUpperCase());
       console.log(soundPress)
-             return soundPress.play();
+      return soundPress.play();
     }
   }
 
@@ -27,6 +27,13 @@ return soundPress.play();*/
   }
 
 
+  function playSound(instrument){
+    setDisplay(instrument.name)
+    let soundClick = document.getElementById(instrument.keyPress)
+     soundClick.play();
+    }
+
+
 
   return(
     <div id="drum-machine">
@@ -34,14 +41,15 @@ return soundPress.play();*/
       {
         Sounds.drums.map(function(drum,index){
 
-          function playSound(){
+          /*function playSound(){
             setDisplay(drum.name)
             let soundClick = document.getElementById(drum.keyPress)
              soundClick.play();
-            }
+            }*/
+
 
         return (
-              <div tabIndex={0} key={index} id={drum.name} className="drum-pad" onClick={playSound} onMouseEnter={() => { setDisplay(drum.name);} } onKeyDown={e =>{keyHandler(e)}}>
+              <div tabIndex={0} key={index} id={drum.name} className="drum-pad" onClick={()=>{playSound(drum)}} onMouseEnter={() => { setDisplay(drum.name);} } onKeyDown={(e)=>{keyHandler(e)}}>
                 <audio src={drum.source} className="clip" id={drum.keyPress} ></audio>
                 <p>{drum.keyPress}</p>   
               </div>             
@@ -57,16 +65,11 @@ return soundPress.play();*/
   {
       Sounds.flat.map(function(key,index){
 
-        function playSound(){
-          setDisplay(key.name)
-          console.log(key.name)
-          let soundClick = document.getElementById(key.keyPress)
-           soundClick.play();
-          }
+        
 
           return(
           
-            <div tabIndex={0} key={index} className="Piano-key"  onClick={playSound} onMouseEnter={()=>{setDisplay(key.name)}} onKeyDown={e=>{keyHandler(e)}}>
+            <div tabIndex={0} key={index} className="Piano-key"  onClick={()=>{playSound(key)}} onMouseEnter={()=>{setDisplay(key.name)}} onKeyDown={e=>{keyHandler(e)}}>
               <audio src={key.source} id={key.keyPress}></audio>
             </div>
           )
@@ -76,12 +79,20 @@ return soundPress.play();*/
     </div>
 
     <div className="BlackKey-container">
-      <PianoBlackKey />
-      <PianoBlackKey/>
-      <PianoBlackKey/>
-      <PianoBlackKey/>
-      <PianoBlackKey/>
-      <PianoBlackKey/>
+     {Sounds.sharp.map((note,index)=>{
+
+    
+
+       return(
+        <div className="BlackPiano-key" onClick={()=>{playSound(note)}} onMouseEnter={()=>{setDisplay(note.name)}}>
+          <audio src={note.source} id={note.keyPress}></audio>
+        </div>
+       )
+
+     })
+
+
+     }
     </div>
   </div>
     </div>
@@ -113,15 +124,20 @@ const Sounds = {
 
   flat:[
     {name:"Grand Piano C - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/377.mp3",keyPress:"T"},
-    {name:"Grand Piano D - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/381.mp3",keyPress:"Y"},
-    {name:"Grand Piano E - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/385.mp3",keyPress:"U"},
-    {name:"Grand Piano F - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/387.mp3",keyPress:"I"},
-    {name:"Grand Piano G - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/391.mp3",keyPress:"I"},
-    {name:"Grand Piano A - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/395.mp3",keyPress:"O"},
-    {name:"Grand Piano B - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/399.mp3",keyPress:"P"},
-  
-    
-  ]
+    {name:"Grand Piano D - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/381.mp3",keyPress:"U"},
+    {name:"Grand Piano E - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/385.mp3",keyPress:"O"},
+    {name:"Grand Piano F - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/387.mp3",keyPress:"P"},
+    {name:"Grand Piano G - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/391.mp3",keyPress:"H"},
+    {name:"Grand Piano A - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/395.mp3",keyPress:"K"},
+    {name:"Grand Piano B - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/399.mp3",keyPress:"B"},
+  ],
+ sharp:[
+    {name:"Grand Piano #C - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/379.mp3",keyPress:"Y"},
+    {name:"Grand Piano #D - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/397.mp3",keyPress:"I"},
+    {name:"Grand Piano #F - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/393.mp3",keyPress:"G"},
+    {name:"Grand Piano #G - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/389.mp3",keyPress:"J"},
+    {name:"Grand Piano #A - 3rd Octave",source:"https://etc.usf.edu/clipaudio/files/383.mp3",keyPress:"L"},
+ ] 
 
   
 
