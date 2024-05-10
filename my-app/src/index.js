@@ -9,17 +9,22 @@ const [soundName,setDisplay] = useState("");
 
 
 function keyHandler(event){
-  console.log("hello")
+  let sound = document.getElementById(event.key.toUpperCase())
+  if(sound !== null){
+    return sound.play();
+  }
+  
+
+/*console.log(Sounds.drums)
   for (let i=0; i<=Sounds.drums.length;i++){
     if(Sounds.drums[i].keyPress === event.key.toUpperCase()){
-      console.log(event.key.toUpperCase());
-
+      //console.log(event.key.toUpperCase());
+      
       const soundPress = document.getElementById(Sounds.drums[i].keyPress.toUpperCase());
-      console.log(soundPress)
+      //console.log(soundPress)
       return soundPress.play();
     }
-  }
-
+  }*/
 /*let soundPress = document.getElementById(event.key.toUpperCase());
 return soundPress.play();*/
 
@@ -30,14 +35,14 @@ return soundPress.play();*/
   function playSound(instrument){
     setDisplay(instrument.name)
     let soundClick = document.getElementById(instrument.keyPress)
-     soundClick.play();
+     return soundClick.play();
     }
 
 
 
   return(
-    <div id="drum-machine">
-      <div id="pad-container">      
+    <div id="drum-machine" onKeyDown={(e)=>{keyHandler(e)}}>
+      <div id="pad-container" >      
       {
         Sounds.drums.map(function(drum,index){
 
@@ -49,7 +54,7 @@ return soundPress.play();*/
 
 
         return (
-              <div tabIndex={0} key={index} id={drum.name} className="drum-pad" onClick={()=>{playSound(drum)}} onMouseEnter={() => { setDisplay(drum.name);} } onKeyDown={(e)=>{keyHandler(e)}}>
+              <div tabIndex={0} key={index} id={drum.name} className="drum-pad" onClick={()=>{playSound(drum)}} onMouseEnter={() => { setDisplay(drum.name);} } >
                 <audio src={drum.source} className="clip" id={drum.keyPress} ></audio>
                 <p>{drum.keyPress}</p>   
               </div>             
@@ -69,7 +74,7 @@ return soundPress.play();*/
 
           return(
           
-            <div tabIndex={0} key={index} className="Piano-key"  onClick={()=>{playSound(key)}} onMouseEnter={()=>{setDisplay(key.name)}} onKeyDown={e=>{keyHandler(e)}}>
+            <div tabIndex={0} key={index} className="Piano-key"  onClick={()=>{playSound(key)}} onMouseEnter={()=>{setDisplay(key.name)}} >
               <audio src={key.source} id={key.keyPress}></audio>
             </div>
           )
