@@ -7,18 +7,24 @@
 
 body{
     font-family:'Courier New', Courier, monospace;
+    overflow-y:hidden;
+    padding-left:15vw;
+    padding-top:15vh;
 }
 
 
 #drum-machine{
     border:5px black solid;
     border-radius:15px;
-    height:75vh;
+    height:80vh;
     width:70vw;
-    margin-left:15vw;
-    margin-top: 100px;
+    /*margin-left:15vw;
+    margin-top: 100px;*/
+
     /*background-color:rgb(202, 30, 42);*/
     background-image:linear-gradient(to right, rgb(202, 30, 42), rgb(187, 101, 101));
+    padding:20px;
+   
    
 } 
 
@@ -28,7 +34,8 @@ body{
     /*margin-top:145px;*/
     /*top:446px;*/
     top:61vh;
-    margin-left:5vw;
+    /*margin-left:5vw;*/
+    right:20.4vw;
     width:60vw;
     height:27.5vh;
     position:fixed;
@@ -98,18 +105,98 @@ top:30px;
 #display{
   background-color:white;
   border:solid 5px black;  
-  width:18vw;
-  height:18vh;
+  width:19vw;
+  height:19vh;
   position:fixed;
   right:28vw;
   top:135px;
   border-radius:10px;
   text-align:center;
   padding:10px;
+  word-wrap: break-word;
 }
 
 #display p{
-font-size:1.1em;
+font-size:1em;
+
+}
+
+
+@media only screen and (max-height:500px) {
+    body{
+        background-color: blue;
+        padding-left:15vw;
+        padding-top:8vh;
+       
+    }
+
+
+    #drum-machine{
+        height:90vh;
+    }
+
+
+    #Key-section{
+     height:35vh;
+     width:66vw;
+     right:17vw;
+  
+        
+    }
+
+    .Piano-key{
+        border:1px black solid;
+        border-right:4px  black solid;
+        border-bottom:4px  black solid;
+        width:14vw;
+        height:33.6vh; 
+        /*height:193px;*/
+    }
+
+    .BlackPiano-key{
+        background-color:black;
+        color:white;
+        width:3.5vw;
+        height:23vh;
+        z-index:10;
+        bottom:34vh;
+        left:7vw;
+        cursor: pointer;
+        position:relative;
+        
+        }
+
+
+    .WhiteKey-container{
+        display:grid;
+        /*grid-template-columns: repeat(7,115.7px);*/
+        grid-template-columns: repeat(7,8.5vw 8.5vw);
+        
+    }
+
+    .drum-pad{
+        border:5px solid black;
+        width:5.8vw;
+        /*height:12vh;*/
+        height:8vh;
+        /*width:95px;*/
+        border-radius:5px;
+        margin-bottom:15px;
+        background-color:rgb(10, 10, 10);
+        cursor: pointer;
+    }
+
+
+    #pad-container{
+        display:grid;
+        grid-template-columns: repeat(3,9vw);
+        /*margin-left:140px;*/
+        left:3vw;
+        position:relative;
+        right:50px;
+        top:30px;
+        }
+
 }
 
 
