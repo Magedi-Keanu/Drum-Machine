@@ -7,7 +7,7 @@
 
 body{
     font-family:'Courier New', Courier, monospace;
-    overflow-y:hidden;
+  
     padding-left:15vw;
     padding-top:15vh;
 }
@@ -124,7 +124,7 @@ font-size:1em;
 
 @media only screen and (max-height:500px) {
     body{
-        background-color: blue;
+        background-color: rgb(20, 227, 216);
         padding-left:15vw;
         padding-top:8vh;
        
