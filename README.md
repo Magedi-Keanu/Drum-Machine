@@ -8,7 +8,7 @@ This is my solution to the FreeCodeCamp Front End Libraries Projects - Build a M
 *js
 
 ## Test app
-Run the [app](https://tranquil-gaufre-ccce96.netlify.app/)
+Run the [app](https://timely-gecko-04e318.netlify.app/)
 
 ## Project Objectives
 
